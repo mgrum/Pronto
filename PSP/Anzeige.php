@@ -1,3 +1,20 @@
+
+<?php
+session_start();
+$pdo = new PDO ( 'mysql:host=mgrum.me;port=3306;dbname=pronto','pronto','wwi14amc');
+
+
+$statement = 'SELECT * FROM Arbeitspaket';
+
+$rs = $pdo -> query($statement);
+
+
+
+while($row = $rs -> fetch()){
+	echo 'ArbeitspaketID: '.$row['ArbeitspaketID'];
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,14 +22,5 @@
 <title>Insert title here</title>
 </head>
 <body>
-<?php
-$pdo = new PDO('mysql:host=http://mgrum.me/phpmyadmin/;dbname=pronto', 'pronto', 'wwi14amc');
-
-$sql = "SELECT * FROM Projektstrukturplan";
-foreach ($pdo->query($sql) as $row) {
-   echo $row['arbeitspaketnr']." ".$row['titel']."<br />";
-   echo "Beschreibung: ".$row['beschreibung']."<br /><br />";
-}
-?>
 </body>
 </html>
