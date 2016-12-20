@@ -11,10 +11,7 @@
 $pdo = new PDO ( 'mysql:host=mgrum.me;port=3306;dbname=pronto','pronto','wwi14amc');
 
 
-$statement = 'SELECT * FROM Arbeitspaket';
-
-$rs = $pdo -> query($statement);
-
+$statement = 'SELECT * FROM PERT_Tabelle';
 
 echo"
 		
@@ -23,7 +20,7 @@ echo"
 
 	";
  
-while($row = $rs -> fetch()){
+foreach($pdo -> query($statement) as $row){
 	echo "<tr> <td>".$row["Nummer"]."</td>";
 	echo "<td>".$row["Aufgabe"]."</td>";
 	echo "<td>".$row["BC"]."</td>";
@@ -33,6 +30,7 @@ while($row = $rs -> fetch()){
 }
 
 echo "</table>";
+
 $pdo = null;
 ?>
 </body>
