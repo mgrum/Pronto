@@ -7,14 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div>
 <?php
 $pdo = new PDO ( 'mysql:host=mgrum.me;port=3306;dbname=pronto','pronto','wwi14amc');
 
 
 $statement = 'SELECT * FROM PERT_Tabelle';
 
-echo"
-		
+echo"		
 <table>
 	<tr> <th>Nummer</th> <th>Aufgabe</th> <th>BC</th> <th>RC</th> <th>WC</th> </tr>
 
@@ -33,5 +33,6 @@ echo "</table>";
 
 $pdo = null;
 ?>
+</div>
 </body>
 </html>
