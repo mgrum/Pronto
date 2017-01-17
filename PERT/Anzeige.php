@@ -1,4 +1,4 @@
-
+	
 
 <!DOCTYPE html>
 <html>
@@ -12,11 +12,11 @@
 $pdo = new PDO ( 'mysql:host=mgrum.me;port=3306;dbname=pronto','pronto','wwi14amc');
 
 
-$statement = 'SELECT * FROM PERT_Tabelle';
+$statement = 'SELECT * FROM PERT';
 
 echo"		
 <table>
-	<tr> <th>Nummer</th> <th>Aufgabe</th> <th>BC</th> <th>RC</th> <th>WC</th> </tr>
+	<tr> <th>Nummer</th> <th>Aufgabe</th> <th>BC</th> <th>RC</th> <th>WC</th> <th>PERT</th></tr>
 
 	";
  
@@ -25,7 +25,8 @@ foreach($pdo -> query($statement) as $row){
 	echo "<td>".$row["Aufgabe"]."</td>";
 	echo "<td>".$row["BC"]."</td>";
 	echo "<td>".$row["RC"]."</td>";
-	echo "<td>".$row["WC"]."</td> </tr>";
+	echo "<td>".$row["WC"]."</td>";
+	echo "<td>".$row["PERT"]."</td> </tr>"; 
 	
 }
 
