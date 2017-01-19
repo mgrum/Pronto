@@ -4,13 +4,7 @@
 <?php include_once "../check.php" ?>
 
 <!--HTML-Header-->
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Dokumentbibliothek</title>
-</head>
-<body>
+<?php include_once "../header.php" ?>
 
 <!--Include navigation-bar-->
 <?php include_once "../navigation.php" ?>

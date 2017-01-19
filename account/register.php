@@ -4,13 +4,7 @@
 <!--TODO Custom Login check - "you are already logged in"-->
 
 <!--HTML-Header-->
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Pronto - Register</title>
-</head>
-<body>
+<?php include_once "../header.php" ?>
 
 <!--Container for content-->
 <div class="row">
