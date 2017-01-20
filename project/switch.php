@@ -1,10 +1,11 @@
 <!--Description: This page shows a list of all projects to switch the current project to (cookie)-->
-
-<!--Check for Login-->
-<?php include_once "../check.php" ?>
+<!--TODO Modal to add new projects where the creator is project lead-->
 
 <!--HTML-Header-->
 <?php include_once "../header.php" ?>
+
+<!--Check for Login-->
+<?php include_once "../check.php" ?>
 
 <!--Include navigation-bar-->
 <?php include_once "../navigation.php" ?>
@@ -15,4 +16,4 @@
 </div>
 
 <!--Footer (Closing body and html)-->
-<?php include_once "../footer.php" ?>
+<?php include_once "../footer.html" ?>

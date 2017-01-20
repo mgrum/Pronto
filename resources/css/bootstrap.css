@@ -5029,6 +5029,7 @@ a.thumbnail.active {
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
+  width: 100%;
 }
 .alert h4 {
   margin-top: 0;
@@ -6755,3 +6756,15 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.vertical-center {
+  align-items: center;
+  display: flex;
+  height: 100%;
+}
+
+.vertical-center80 {
+  align-items: center;
+  display: flex;
+  height: 80%;
+}

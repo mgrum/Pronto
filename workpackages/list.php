@@ -1,10 +1,13 @@
 <!--Description: This page shows a simple list of all workpackages of the current project-->
+<!--TODO each workpackage is a link to its overview (overview.php#workpackage=nameOfWorkpackage-->
+<!--TODO Modal to add new workpackages (can only be seen by project & team leader-->
+
+<!--HTML-Header-->
+<?php include_once "../header.php" ?>
 
 <!--Check for Login-->
 <?php include_once "../check.php" ?>
 
-<!--HTML-Header-->
-<?php include_once "../header.php" ?>
 <!--Include navigation-bar-->
 <?php include_once "../navigation.php" ?>
 
@@ -24,4 +27,4 @@
 </div>
 
 <!--Footer (Closing body and html)-->
-<?php include_once "../footer.php" ?>
+<?php include_once "../footer.html" ?>
