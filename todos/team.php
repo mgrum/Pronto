@@ -1,10 +1,10 @@
 <!--Description: This page shows all open todos of the team the user is assigned to of the current project-->
 
-<!--Check for Login-->
-<?php include_once "../check.php" ?>
-
 <!--HTML-Header-->
 <?php include_once "../header.php" ?>
+
+<!--Check for Login-->
+<?php include_once "../check.php" ?>
 
 <!--Include navigation-bar-->
 <?php include_once "../navigation.php" ?>
@@ -25,4 +25,4 @@
 </div>
 
 <!--Footer (Closing body and html)-->
-<?php include_once "../footer.php" ?>
+<?php include_once "../footer.html" ?>

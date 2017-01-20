@@ -1,10 +1,11 @@
 <!--Description: This page shows all open todos for the logged in user of the current project-->
-
-<!--Check for Login-->
-<?php include_once "../check.php" ?>
+<!--TODO Button for each todo -  'finish todo'-->
 
 <!--HTML-Header-->
 <?php include_once "../header.php" ?>
+
+<!--Check for Login-->
+<?php include_once "../check.php" ?>
 
 <!--Include navigation-bar-->
 <?php include_once "../navigation.php" ?>
@@ -25,4 +26,4 @@
 </div>
 
 <!--Footer (Closing body and html)-->
-<?php include_once "../footer.php" ?>
+<?php include_once "../footer.html" ?>

@@ -1,10 +1,11 @@
 <!--Description: This page shows all teams of the current project-->
-
-<!--Check for Login-->
-<?php include_once "../check.php" ?>
+<!--TODO Modal to create new teams where you can chose 'email' (must exist) of team leader-->
 
 <!--HTML-Header-->
 <?php include_once "../header.php" ?>
+
+<!--Check for Login-->
+<?php include_once "../check.php" ?>
 
 <!--Include navigation-bar-->
 <?php include_once "../navigation.php" ?>
@@ -25,4 +26,4 @@
 </div>
 
 <!--Footer (Closing body and html)-->
-<?php include_once "../footer.php" ?>
+<?php include_once "../footer.html" ?>

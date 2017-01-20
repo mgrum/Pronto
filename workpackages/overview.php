@@ -1,10 +1,11 @@
 <!--Description: This page shows basic information for a single workpackage of the current project (# in URL)-->
-
-<!--Check for Login-->
-<?php include_once "../check.php" ?>
+<!--TODO Button to add new todo for this work package - Can only be seen by project & team leader-->
 
 <!--HTML-Header-->
 <?php include_once "../header.php" ?>
+
+<!--Check for Login-->
+<?php include_once "../check.php" ?>
 
 <!--Include navigation-bar-->
 <?php include_once "../navigation.php" ?>
@@ -30,4 +31,4 @@
 </div>
 
 <!--Footer (Closing body and html)-->
-<?php include_once "../footer.php" ?>
+<?php include_once "../footer.html" ?>
