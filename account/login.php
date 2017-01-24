@@ -61,7 +61,7 @@
                                 <input type="password" class="form-control" id="pwd" name="pwd">
                             </div>
                             <button type="submit" class="btn btn-default">Login</button>
-                            <a href="registrieren.html">
+                            <a href="register.php">
                                 <button type="button" class="btn btn-link pull-right">Registrieren</button>
                             </a>x
                         </form>
