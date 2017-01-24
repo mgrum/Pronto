@@ -27,7 +27,7 @@
                 // Überprüfung der Login Daten
                 if ($user !== false && password_verify($passwort, $user ['Passwort'])) {
                     $_SESSION ['userid'] = $email;
-                    $_SESSION ['chosenProject'] = 'Benutzer Schulen';
+                    $_SESSION ['chosenProject'] = 'Benutzer schulen';
                     
                     die ('
                     </div></div></div>
