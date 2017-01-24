@@ -16,10 +16,12 @@ if (isset ( $_GET ['login'] )) {
 	$user = $statement->fetch ();
 	// Überprüfung der Login Daten
 	if ($user !== false && password_verify ( $passwort, $user ['Passwort'] )) {
-		//$_SESSION ['userid'] = $user ['id'];
-		die ( "Login war erfolgreich! " );
+		$_SESSION ['userid'] = session_id ();
+		
+		die ( 'Login war erfolgreich! <a href="switch.php"> &Uuml;bersicht </a> ' );
+		// weiterleitung: Link noch anpassen!
 	} else {
-		$errorMsg = "Verbindung konnte nicht hergestellt werden ODER Passwort bzw. NUtzername ist falsch.<br>";
+		$errorMsg = "Verbindung konnte nicht hergestellt werden ODER Passwort bzw. Nutzername ist falsch.<br>";
 		echo ($errorMsg);
 	}
 }
@@ -36,19 +38,11 @@ if (isset ( $_GET ['login'] )) {
 
 
 	</form>
-<?php
-// Set session variables
 
-//$_SESSION ["username"] = $_POST ['email'];
-$_SESSION ["role"] = "";
-$_SESSION ["chosenProject"] = "";
-echo $_SESSION ["username"];
-echo "Session variables are set.";
-?>
 
-<p>
+	<p>
 		<br /> Sie verf&uuml;gen &uuml;ber kein Benutzerkonto? Dann
-		registrieren Sie sich <a href="registrieren.php">hier</a>
+		registrieren Sie sich <a href="Registrierung.php">hier</a>
 	</p>
 
 </body>
