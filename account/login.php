@@ -26,7 +26,8 @@
                 $user = $statement->fetch();
                 // Überprüfung der Login Daten
                 if ($user !== false && password_verify($passwort, $user ['Passwort'])) {
-                    $_SESSION ['userid'] = session_id();
+                    $_SESSION ['userid'] = $email;
+                    $_SESSION ['chosenProject'] = 'Benutzer Schulen';
                     
                     die ('
                     </div></div></div>
