@@ -25,32 +25,43 @@
 	</div>
 </div>
 
-<?php 
-$_SESSION['role'] = "Projektleiter";
+<?php
+$_SESSION ['role'] = "Projektleiter";
+$_SESSION ['ProjectID'] = "Benutzer schulen";
 
-if ($_SESSION['role'] == "Projektleiter" || $_SESSION['role'] == "Administrator"){?>
+if ($_SESSION ['role'] == "Projektleiter" || $_SESSION ['role'] == "Administrator") {
+	?>
 <div>
 	<button type="button" name="Team hinzufuegen">Team hinzufuegen</button>
 
 </div>
 
 <?php
-
 }
 
 $pdo = new PDO ( 'mysql:host=mgrum.me;port=3306;dbname=pronto', 'pronto', 'wwi14amc' );
 
-$statement = "SELECT Teambezeichnung as Team, Arbeitspaketbezeichnung as Arbeitspaket FROM 'Arbeitspakete_pro_Team' Where Teambezeichnung = " . $_SESSION ['ProjectID'];
+$statement = "SELECT Projekt, Team FROM `Team_pro_Projekt` Where Projekt = '" . $_SESSION ['ProjectID']."'";
 
 echo "
 <table>
-	<tr> <th>Team</th> <th>Arbeitspaket</th> </tr>
+	<tr> <th>Projekt</th> <th>Team</th> </tr>
 	";
-
+$temp = "null";
 foreach ( $pdo->query ( $statement ) as $row ) {
-	echo "<tr> <td>" . $row ["Team"] . "</td>";
-	echo "<td>" . $row ["Arbeitspaket"] . "</td> </tr>";
+	if ($row["Projekt"] == $temp){
+		echo "<tr><td></td>";
+		echo "<td>" . $row ["Team"] . "</td> </tr>";
+	}
+	else{
+		echo "<tr> <td>" . $row ["Projekt"] . "</td></tr>";
+		echo "<tr>";
+		echo "<td></td><td>" . $row ["Team"] . "</td> </tr>";
+		$temp = $row ["Projekt"];
+	}
+	
 }
+$temp = "null";
 echo "</table>";
 
 ?>
