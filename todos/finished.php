@@ -11,26 +11,25 @@
 
 <div tabelle>
 <?php
-$pdo = new PDO('mysql:host=mgrum.me;port=3306;dbname=pronto','pronto','wwi14amc');
-$project = $_SESSION ["chosenProject"];
+	
+	$pdo = new PDO('mysql:host=mgrum.me;port=3306;dbname=pronto','pronto','wwi14amc');
+	$project = $_SESSION ["chosenProject"];
 
-$sql = "SELECT * FROM ToDos_pro_Projekt WHERE Projekt.Bezeichnung =" . $project . " AND ToDos.Status = 'geschlossen'"; 
+	$sql = "SELECT ToDosBezeichnung, Anfangszeitpunkt, Endzeitpunkt, Dauer FROM ToDos_pro_Projekt WHERE Projektbezeichnung ='Benutzer schulen' AND ToDosStatus = 'geschlossen'";
 
-
-echo"		
-<table>
-	<tr> <th>Bezeichnung</th> <th>Anfangszeitpunkt</th> <th>Endzeitpunkt</th> <th>Dauer</th></tr>
+	echo"		
+	<table>
+		<tr> <th>ToDosBezeichnung</th> <th>Anfangszeitpunkt</th> <th>Endzeitpunkt</th> <th>Dauer</th></tr>
 	";
  
-foreach($pdo -> query($sql) as $row){
-	echo "<tr> <td>".$row["Bezeichnung"]."</td>";
-	echo "<td>".$row["Anfangszeitpunkt"]."</td>";
-	echo "<td>".$row["Endzeitpunkt"]."</td>";
-	echo "<td>".$row["Dauer"]."</td>";
-
+	foreach($pdo -> query($sql) as $row){
+		echo "<tr> <td>".$row["ToDosBezeichnung"]."</td>";
+		echo "<td>".$row["Anfangszeitpunkt"]."</td>";
+		echo "<td>".$row["Endzeitpunkt"]."</td>";
+		echo "<td>".$row["Dauer"]."</td></tr>";
 	
-}
-echo "</table>";
+	}
+	echo "</table>";
 ?>
 </div>
 
