@@ -38,7 +38,8 @@ if (isset ( $_GET ['register'] )) {
 	if (! $error) {
 		$passwort_hash = password_hash ( $passwort, PASSWORD_DEFAULT );
 		
-		$statement = $pdo->prepare ( "INSERT INTO `Benutzer` (`EMail`, `Vorname`, `Nachname`, `Passwort`, `SOLLArbeitszeit`, `ISTArbeitszeit`) VALUES (:email, :vorname, :nachname, :passwort, :sollAZ, NULL)" );
+		$statement = $pdo->prepare ( "INSERT INTO `Benutzer` (`EMail`, `Vorname`, `Nachname`, `Passwort`, `SOLLArbeitszeit`, `ISTArbeitszeit`) 
+				VALUES (:email, :vorname, :nachname, :passwort, :sollAZ, NULL)" );
 		
 		$result = $statement->execute ( array (
 				'email' => $email,
@@ -56,7 +57,7 @@ if (isset ( $_GET ['register'] )) {
 		}
 	}
 }
-
+$pdo = null;
 if ($showFormular) {
 	?>
 
