@@ -10,6 +10,30 @@
 <!--Include navigation-bar-->
 <?php include_once "../navigation.php" ?>
 
+<div tabelle>
+<?php
+	
+	$pdo = new PDO('mysql:host=mgrum.me;port=3306;dbname=pronto','pronto','wwi14amc');
+	
+	//Solange Cookie noch nicht vollständig: $email = $_SESSION ["email"] = "da.schneider100@gmx.de;
+	$email = $_SESSION ["email"];
+
+	$sql = "SELECT Bezeichnung, Status FROM ToDos_pro_Benutzer WHERE Status != 'geschlossen' AND Email='" . $email . "'";
+
+	echo"		
+	<table>
+		<tr> <th>Bezeichnung</th> <th>Status</th></tr>
+	";
+ 
+	foreach($pdo -> query($sql) as $row){
+		echo "<tr> <td>".$row["Bezeichnung"]."</td>";
+		echo "<td>".$row["Status"]."</td></tr>";
+	
+	}
+	echo "</table>";
+?>
+</div>
+
 <!--Container for content-->
 <div class="row">
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">

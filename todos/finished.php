@@ -13,9 +13,11 @@
 <?php
 	
 	$pdo = new PDO('mysql:host=mgrum.me;port=3306;dbname=pronto','pronto','wwi14amc');
-	$project = $_SESSION ["chosenProject"];
+	
+	//Solange Cookie noch nicht vollständig: $project = $_SESSION ["chosenProject"] = "Benutzer schulen";
+	$project = $_SESSION ["chosenProject"] = "Benutzer schulen";
 
-	$sql = "SELECT ToDosBezeichnung, Anfangszeitpunkt, Endzeitpunkt, Dauer FROM ToDos_pro_Projekt WHERE Projektbezeichnung ='Benutzer schulen' AND ToDosStatus = 'geschlossen'";
+	$sql = "SELECT ToDosBezeichnung, Anfangszeitpunkt, Endzeitpunkt, Dauer FROM ToDos_pro_Projekt WHERE Projektbezeichnung ='" . $project . "' AND ToDosStatus = 'geschlossen'";
 
 	echo"		
 	<table>
