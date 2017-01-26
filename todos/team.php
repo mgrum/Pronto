@@ -9,6 +9,46 @@
 <!--Include navigation-bar-->
 <?php include_once "../navigation.php" ?>
 
+<div tabelle>
+<?php
+	
+	$pdo = new PDO('mysql:host=mgrum.me;port=3306;dbname=pronto','pronto','wwi14amc');
+	
+	//Solange Cookie noch nicht vollständig: $email = $_SESSION ["email"] = "da.schneider100@gmx.de;
+	$email = $_SESSION ["email"] = "da.schneider100@gmx.de";
+	$project = $_SESSION ["chosenProject"] = "2";
+	
+	$sqlTeamName = "SELECT Team.Bezeichnung AS Bezeichnung FROM BenutzerTeam, Team, Arbeitspaket WHERE BenutzerTeam.TeamID = Team.TeamID AND Arbeitspaket.TeamID = Team.TeamID AND BenutzerTeam.EMail ='" . $email . "'";
+	
+	
+	//Erste Schleife erstellt die tabs
+	echo"
+	<ul class=\"nav nav-tabs\">";
+	foreach($pdo -> query($sqlTeamName) as $teamName){
+		echo "<li><a>".$teamName["Bezeichnung"]."</a></li>
+			";
+	
+	
+	$sqlToDosProTeam = "SELECT Team.Bezeichnung AS TeamBezeichnung, ToDos.Bezeichnung AS ToDosBezeichnung, ToDos.Status AS ToDosStatus FROM Team, Arbeitspaket, ToDos WHERE Team.TeamID = Arbeitspaket.TeamID AND Arbeitspaket.ArbeitspaketID = ToDos.ArbeitspaketID AND Arbeitspaket.ProjektID='" . $project . "' AND Team.Bezeichnung='" . $teamName . "'";
+	
+	//Zweite Schleife erstellt die Tabellen
+		echo"		
+		<table>
+			<tr> <th>TeamBezeichnung</th> <th>ToDosBezeichnung</th> <th>ToDosStatus</th></tr>
+			";
+ 
+		foreach($pdo -> query($sqlToDosProTeam) as $row){
+			echo "<tr> <td>".$row["TeamBezeichnung"]."</td>";
+			echo "<td>".$row["ToDosBezeichnung"]."</td>";
+			echo "<td>".$row["ToDosStatus"]."</td></tr>";
+	
+		}
+		echo "</table>";
+	}
+	echo "</ul>";
+?>
+</div>
+
 <!--Container for content-->
 <div class="row">
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
