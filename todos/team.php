@@ -31,7 +31,7 @@
 	
 	$sqlToDosProTeam = "SELECT Team.Bezeichnung AS TeamBezeichnung, ToDos.Bezeichnung AS ToDosBezeichnung, ToDos.Status AS ToDosStatus FROM Team, Arbeitspaket, ToDos WHERE Team.TeamID = Arbeitspaket.TeamID AND Arbeitspaket.ArbeitspaketID = ToDos.ArbeitspaketID AND Arbeitspaket.ProjektID='" . $project . "' AND Team.Bezeichnung='" . $teamName . "'";
 	
-	//Zweite Schleife erstellt die Tabellen
+	//Zweite Schleife erstellt die Tabelle
 		echo"		
 		<table>
 			<tr> <th>TeamBezeichnung</th> <th>ToDosBezeichnung</th> <th>ToDosStatus</th></tr>
