@@ -22,7 +22,9 @@
 	$stringList = "<ul class=\"nav nav-tabs\">";
 	$stringTable = "<div class=\"tab-content\">";
 	
-	$sqlTeamName = "SELECT Team.Bezeichnung AS Bezeichnung FROM BenutzerTeam, Team, Arbeitspaket WHERE BenutzerTeam.TeamID = Team.TeamID AND Arbeitspaket.TeamID = Team.TeamID AND BenutzerTeam.EMail ='" . $email . "'";
+	$sqlTeamName = "SELECT Team.Bezeichnung AS Bezeichnung FROM BenutzerTeam, Team, Arbeitspaket 
+			WHERE BenutzerTeam.TeamID = Team.TeamID AND Arbeitspaket.TeamID = Team.TeamID AND BenutzerTeam.EMail ='" . $email . "' 
+			GROUP BY Bezeichnung";
 	//
 	
 	
@@ -34,7 +36,7 @@
 				
 		$sqlToDosProTeam = "SELECT Team.Bezeichnung AS TeamBezeichnung, ToDos.Bezeichnung AS ToDosBezeichnung, ToDos.Status AS ToDosStatus 
 						FROM Team, Arbeitspaket, ToDos 
-						WHERE Team.TeamID = Arbeitspaket.TeamID AND Arbeitspaket.ArbeitspaketID = ToDos.ArbeitspaketID  AND Team.Bezeichnung='" . $teamName[0] . "' AND Arbeitspaket.ProjektID='" . $project . "' ";
+						WHERE Team.TeamID = Arbeitspaket.TeamID AND Arbeitspaket.ArbeitspaketID = ToDos.ArbeitspaketID  AND Team.Bezeichnung='" . $teamName["Bezeichnung"] . "' AND Arbeitspaket.ProjektID='" . $project . "' ";
 		
 		//Zweite Schleife erstellt die Tabelle
 		$stringTable .= "<div id=\"".$teamName["Bezeichnung"]."\" class=\"tab-pane fade\"><table><tr> <th>TeamBezeichnung</th> <th>ToDosBezeichnung</th> <th>ToDosStatus</th></tr>";
