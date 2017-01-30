@@ -16,36 +16,46 @@
 	
 	//Solange Cookie noch nicht vollständig: $email = $_SESSION ["email"] = "da.schneider100@gmx.de;
 	$email = $_SESSION ["email"] = "da.schneider100@gmx.de";
-	$project = $_SESSION ["chosenProject"] = "2";
+	$project = $_SESSION ["chosenProject"] = "1";
+	$firstForeachDone = true;
+	
+	$stringList = "<ul class=\"nav nav-tabs\">";
+	$stringTable = "<div class=\"tab-content\">";
 	
 	$sqlTeamName = "SELECT Team.Bezeichnung AS Bezeichnung FROM BenutzerTeam, Team, Arbeitspaket WHERE BenutzerTeam.TeamID = Team.TeamID AND Arbeitspaket.TeamID = Team.TeamID AND BenutzerTeam.EMail ='" . $email . "'";
+	//
 	
 	
 	//Erste Schleife erstellt die tabs
-	echo"
-	<ul class=\"nav nav-tabs\">";
+	//echo"
+	//<ul class=\"nav nav-tabs\">";
 	foreach($pdo -> query($sqlTeamName) as $teamName){
-		echo "<li><a>".$teamName["Bezeichnung"]."</a></li>
-			";
-	
-	
-	$sqlToDosProTeam = "SELECT Team.Bezeichnung AS TeamBezeichnung, ToDos.Bezeichnung AS ToDosBezeichnung, ToDos.Status AS ToDosStatus FROM Team, Arbeitspaket, ToDos WHERE Team.TeamID = Arbeitspaket.TeamID AND Arbeitspaket.ArbeitspaketID = ToDos.ArbeitspaketID AND Arbeitspaket.ProjektID='" . $project . "' AND Team.Bezeichnung='" . $teamName . "'";
-	
-	//Zweite Schleife erstellt die Tabelle
-		echo"		
-		<table>
-			<tr> <th>TeamBezeichnung</th> <th>ToDosBezeichnung</th> <th>ToDosStatus</th></tr>
-			";
+		$stringList .= "<li><a data-toggle=\"tab\" href=\"#".$teamName["Bezeichnung"]."\">".$teamName["Bezeichnung"]."</a></li>";
+				
+		$sqlToDosProTeam = "SELECT Team.Bezeichnung AS TeamBezeichnung, ToDos.Bezeichnung AS ToDosBezeichnung, ToDos.Status AS ToDosStatus 
+						FROM Team, Arbeitspaket, ToDos 
+						WHERE Team.TeamID = Arbeitspaket.TeamID AND Arbeitspaket.ArbeitspaketID = ToDos.ArbeitspaketID  AND Team.Bezeichnung='" . $teamName[0] . "' AND Arbeitspaket.ProjektID='" . $project . "' ";
+		
+		//Zweite Schleife erstellt die Tabelle
+		$stringTable .= "<div id=\"".$teamName["Bezeichnung"]."\" class=\"tab-pane fade\"><table><tr> <th>TeamBezeichnung</th> <th>ToDosBezeichnung</th> <th>ToDosStatus</th></tr>";
  
 		foreach($pdo -> query($sqlToDosProTeam) as $row){
-			echo "<tr> <td>".$row["TeamBezeichnung"]."</td>";
-			echo "<td>".$row["ToDosBezeichnung"]."</td>";
-			echo "<td>".$row["ToDosStatus"]."</td></tr>";
-	
+			
+			$stringTable .= "<tr> <td>".$row["TeamBezeichnung"]."</td>";
+			$stringTable .= "<td>".$row["ToDosBezeichnung"]."</td>";
+			$stringTable .= "<td>".$row["ToDosStatus"]."</td></tr>";
+						
 		}
-		echo "</table>";
+		$stringTable .= "</table></div>";
+
 	}
-	echo "</ul>";
+	$stringList .= "</ul>";
+	$stringTable .= "</div>";
+	
+
+	echo($stringList);
+	echo($stringTable);
+	
 ?>
 </div>
 
