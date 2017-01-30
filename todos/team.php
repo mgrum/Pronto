@@ -24,8 +24,6 @@
 	$sqlTeamName = "SELECT Team.Bezeichnung AS Bezeichnung FROM BenutzerTeam, Team, Arbeitspaket 
 			WHERE BenutzerTeam.TeamID = Team.TeamID AND Arbeitspaket.TeamID = Team.TeamID AND BenutzerTeam.EMail ='" . $email . "' 
 			GROUP BY Bezeichnung";
-	//
-	
 	
 	//Erste Schleife erstellt die tabs
 	foreach($pdo -> query($sqlTeamName) as $teamName){

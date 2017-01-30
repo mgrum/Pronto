@@ -15,7 +15,7 @@
 	
 	$pdo = new PDO('mysql:host=mgrum.me;port=3306;dbname=pronto','pronto','wwi14amc');
 	
-	//Solange cookie noch nicht vollständig: $email = $_SESSION ["email"] = "da.schneider100@gmx.de;
+	//Solange cookie noch nicht vollstaendig: $email = $_SESSION ["email"] = "da.schneider100@gmx.de;
 	$email = $_SESSION ["email"];
 
 	$sql = "SELECT Bezeichnung, Status FROM ToDos_pro_Benutzer WHERE Status != 'geschlossen' AND Email='" . $email . "'";
