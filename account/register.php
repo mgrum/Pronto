@@ -114,4 +114,5 @@ $pdo = null;
 </div>
 
 <!--Footer (Closing body and html)-->
-<?php include_once "../footer.html" ?>
+</body>
+</html>

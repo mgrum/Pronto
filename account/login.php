@@ -63,7 +63,7 @@
                             <button type="submit" class="btn btn-default">Login</button>
                             <a href="register.php">
                                 <button type="button" class="btn btn-link pull-right">Registrieren</button>
-                            </a>x
+                            </a>
                         </form>
                     </div>
                 </div>
@@ -73,4 +73,5 @@
 </div>
 
 <!--Footer (Closing body and html)-->
-<?php include_once "../footer.html" ?>
+</body>
+</html>

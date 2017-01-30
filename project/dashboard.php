@@ -4,7 +4,7 @@
 <?php include_once "../header.php" ?>
 
 <!--Check for Login-->
-<?php //include_once "../check.php" ?>
+<?php include_once "../check.php" ?>
 
 <!--Include navigation-bar-->
 <?php include_once "../navigation.php" ?>
