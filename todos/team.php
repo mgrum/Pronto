@@ -16,7 +16,7 @@
 	
 	//Solange Cookie noch nicht vollständig: $email = $_SESSION ["email"] = "da.schneider100@gmx.de;
 	$email = $_SESSION ["email"] = "da.schneider100@gmx.de";
-	$project = $_SESSION ["chosenProject"] = "1";
+	$project = $_SESSION ["chosenProject"] = "2";
 	$firstForeachDone = true;
 	
 	$stringList = "<ul class=\"nav nav-tabs\">";
