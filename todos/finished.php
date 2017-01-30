@@ -11,11 +11,10 @@
 
 <div tabelle>
 <?php
-<<<<<<< HEAD
 	
 	$pdo = new PDO('mysql:host=mgrum.me;port=3306;dbname=pronto','pronto','wwi14amc');
 	
-	//Solange Cookie noch nicht vollständig: $project = $_SESSION ["chosenProject"] = "Benutzer schulen";
+	//Solange Cookie noch nicht vollstï¿½ndig: $project = $_SESSION ["chosenProject"] = "Benutzer schulen";
 	$project = $_SESSION ["chosenProject"] = "Benutzer schulen";
 
 	$sql = "SELECT ToDosBezeichnung, Anfangszeitpunkt, Endzeitpunkt, Dauer FROM ToDos_pro_Projekt WHERE Projektbezeichnung ='" . $project . "' AND ToDosStatus = 'geschlossen'";
@@ -33,7 +32,7 @@
 	
 	}
 	echo "</table>";
-=======
+
 $pdo = new PDO('mysql:host=mgrum.me;port=3306;dbname=pronto','pronto','wwi14amc');
 $project = $_SESSION ["chosenProject"];
 
@@ -54,7 +53,7 @@ foreach($pdo -> query($sql) as $row){
 	
 }
 echo "</table>";
->>>>>>> branch 'todos' of https://github.com/mgrum/Pronto.git
+
 ?>
 </div>
 

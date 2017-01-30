@@ -14,10 +14,9 @@
 	
 	$pdo = new PDO('mysql:host=mgrum.me;port=3306;dbname=pronto','pronto','wwi14amc');
 	
-	//Solange Cookie noch nicht vollständig: $email = $_SESSION ["email"] = "da.schneider100@gmx.de;
+	//Solange Cookie noch nicht vollstaendig: $email = $_SESSION ["email"] = "da.schneider100@gmx.de;
 	$email = $_SESSION ["email"] = "da.schneider100@gmx.de";
 	$project = $_SESSION ["chosenProject"] = "2";
-	$firstForeachDone = true;
 	
 	$stringList = "<ul class=\"nav nav-tabs\">";
 	$stringTable = "<div class=\"tab-content\">";
@@ -29,8 +28,6 @@
 	
 	
 	//Erste Schleife erstellt die tabs
-	//echo"
-	//<ul class=\"nav nav-tabs\">";
 	foreach($pdo -> query($sqlTeamName) as $teamName){
 		$stringList .= "<li><a data-toggle=\"tab\" href=\"#".$teamName["Bezeichnung"]."\">".$teamName["Bezeichnung"]."</a></li>";
 				
