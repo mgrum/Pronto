@@ -48,5 +48,4 @@ if (strpos($page_title, 'account/login.php') !== false) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="../resources/js/bootstrap.js"></script>
 </head>
-<body>
-<div class="container">
+<body class="container">
