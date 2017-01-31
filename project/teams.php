@@ -20,7 +20,13 @@
     </div>
     <div class="col-md-9 col-lg-9">
         <div class="panel panel-default panel-body">
-            <!--TODO Content-->
+            <?php
+            include_once "../database.php";
+            if (isset($pdo)) {
+                // TODO Content
+        
+            }
+            ?>
         </div>
     </div>
 </div>

@@ -12,7 +12,13 @@
 
 <!--Container for content-->
 <div class="row">
-    <!--TODO Content-->
+    <?php
+    include_once "../database.php";
+    if (isset($pdo)) {
+        // TODO Content
+        
+    }
+    ?>
 </div>
 
 <!--Footer (Closing body and html)-->
