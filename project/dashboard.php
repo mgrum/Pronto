@@ -19,8 +19,13 @@
     </div>
     <div class="col-md-9 col-lg-9">
         <div class="panel panel-body panel-default">
-            <!--TODO Content-->
-            <p>das ist ein test</p>
+            <?php
+            include_once "../database.php";
+            if (isset($pdo)) {
+                // TODO Content
+        
+            }
+            ?>
         </div>
     </div>
 </div>
