@@ -6,22 +6,33 @@ if (! isset ( $_SESSION ['userid'] )) {
 } else {
 	$userid = $_SESSION ['userid'];
 }
-$_SESSION ['project'] = $_GET["ProjectID"];
+$_SESSION ['project'] = $_GET ["ProjectID"];
+$projectID = $_SESSION ['project'];
 echo $_SESSION ['project'];
 
 $pdo = new PDO ( 'mysql:host=mgrum.me;port=3306; dbname=pronto', 'pronto', 'wwi14amc' );
 // Statement einfügen für Gesamt
-$statementG = $pdo->prepare ( "SELECT COUNT(ToDos.ToDosID) FROM (Projekt INNER JOIN Arbeitspaket ON Projekt.ProjektID=Arbeitspaket.ProjektID)
+$gesamt = 0;
+$statementG = $pdo->prepare ( "SELECT ToDos.ToDosID FROM (Projekt INNER JOIN Arbeitspaket ON Projekt.ProjektID=Arbeitspaket.ProjektID)
 		INNER JOIN ToDos ON Arbeitspaket.ArbeitspaketID=ToDos.ArbeitspaketID WHERE Projekt.ProjektID=:parameterID" );
-$statementG->bindParam ( 'parameterID', $_SESSION ['ProjectID'] );
-$resultG = $statementG->execute ();
-// $gesamt = $resultG->fetch ();
+$statementG->bindParam ( ':parameterID', $projectID, PDO::PARAM_INT );
+$statementG->execute ();
+while ( $row = $statementG->fetch () ) {
+	$allResults [] = $row;
+	$gesamt = $gesamt + 1;
+}
+// $gesamt = $statementG->fetch();
 // Statement einfügen für Fortschritt
-$statementF = $pdo->prepare ( "SELECT COUNT(ToDos.ToDosID) FROM (Projekt INNER JOIN Arbeitspaket ON Projekt.ProjektID=Arbeitspaket.ProjektID)
-		INNER JOIN ToDos ON Arbeitspaket.ArbeitspaketID=ToDos.ArbeitspaketID WHERE Projekt.ProjektID=:parameterID AND ToDos.Status='erledigt' " );
-$statementF->bindParam('parameterID', $_SESSION ['ProjectID']);
-$resultF = $statementF->execute ();
-// $fortschritt = $resultF->fetch ();
+$fortschritt = 0;
+$statementF = $pdo->prepare ( "SELECT ToDos.ToDosID FROM (Projekt INNER JOIN Arbeitspaket ON Projekt.ProjektID=Arbeitspaket.ProjektID)
+		INNER JOIN ToDos ON Arbeitspaket.ArbeitspaketID=ToDos.ArbeitspaketID WHERE Projekt.ProjektID=:parameterID AND ToDos.Status='geschlossen' " );
+$statementF->bindParam ( ':parameterID', $projectID, PDO::PARAM_INT );
+$statementF->execute ();
+while ( $row = $statementF->fetch () ) {
+	$allResults [] = $row;
+	$fortschritt = $fortschritt + 1;
+}
+// $fortschritt = $statementF->fetch();
 $pdo = null;
 ?>
 
@@ -33,23 +44,23 @@ $pdo = null;
 	<div id="information" style=""></div>
 <?php
 // Looper für den Fortschrittsbalken
-for($i = -1; $i <= $resultF; $i ++) {
+for($i = 0; $i <= $fortschritt; $i ++) {
 	// Prozent berechnen
-	$prozent = intval ( $i / $resultG * 100 ) . "%";
+	$prozent = intval ( $i / $gesamt * 100 ) . "%";
 	
 	// javascript für Update
 	echo '<script language="javascript">
     document.getElementById("progressBar").innerHTML="<div style=\"width:' . $prozent . ';background-color:#3ADF00;\">&nbsp;</div>";
-    document.getElementById("information").innerHTML="' . $i . ' Tasks von ' . $resultG . ' komplett.";
+    document.getElementById("information").innerHTML="' . $i . ' Tasks von ' . $gesamt . ' komplett.";
     </script>';
 	
 	// buffer für Minimalgröße
 	echo str_repeat ( ' ', 1024 * 64 );
+	
 	flush ();
 	// sleep für delay "Animation"
-	usleep ( 25000 );
+	usleep ( 75000 );
 }
 ?>
 </body>
-</html>
 </html>
