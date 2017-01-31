@@ -1,5 +1,12 @@
 <!--Description: This page shows all teams of the current project-->
 <!--TODO Modal to create new teams where you can chose 'email' (must exist) of team leader-->
+<!-- 
+Aufgabe für Sven Ropeter:
+- Pronto/project/teams.php programmieren
+- Dazu muss es in der DB eine view geben: Teammitglieder zu Team zu Projekt
+- Es soll für jedes Team ein eigenes <div>/ eigene Tabelle erzeugt werden
+- Also Überschrift des Teamnamens und dann eine Tabelle mit allen mitgliedern und deren Rolle (Teamleiter am besten ganz oben, mitglieder danach)
+- Solange wiederholen bis alle Teams des projektes angezeigt sind -->
 
 <!--HTML-Header-->
 <?php include_once "../header.php"?>
