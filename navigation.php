@@ -16,7 +16,7 @@
             <li <?php if (strpos($link, '/project') !== false) echo "class='active'" ?>>
                 <a href="../project/overview.php">Projekt</a></li>
             <li <?php if (strpos($link, '/workpackages') !== false) echo "class='active'" ?>>
-                <a href="../workpackages/overview.php">Arbeitspakete</a></li>
+                <a href="../workpackages/list.php">Arbeitspakete</a></li>
             <li <?php if (strpos($link, '/todos') !== false) echo "class='active'" ?>>
                 <a href="../todos/personal.php">To-do</a></li>
         </ul>
