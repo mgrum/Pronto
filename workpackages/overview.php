@@ -17,7 +17,7 @@
     </div>    
 </div>
 <div class="row">
-    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <div class="col-md-3 col-lg-3">
         <div class="panel panel-default">
             <!--Sidebar of this tab-->
             <?php include_once "sidebar.html" ?>
