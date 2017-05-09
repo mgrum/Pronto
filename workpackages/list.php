@@ -22,7 +22,7 @@
 	<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 		<div class="well">
 			<!--TODO Content-->
-			<?php
+			
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <div class="panel panel-default">
             <!--Sidebar of this tab-->
@@ -53,11 +53,17 @@
 					
 				<?php
 				foreach ( $pdo->query ( $sqlWorkpackages ) as $row ) {
+					$APName = $row["Arbeitspaketezeichnung"];
+					$APID = $row ["ArbeitspaketID"];
+					$TN = $row["Teamname"];
 					
-					echo "<tr> <td>" . $row ["ArbeitspaketID"] . "</td>";
-					echo "<td>" .$row["Arbeitspaketezeichnung"]. "</td>";
-					echo "<td>" . $row ["Teamname"]."</td>";
-					echo '<td><a href="overview.php\#workpackage="'.$row["Arbeitspaketezeichnung"].'"> Zum Overview hier klicken</a></td></tr>';
+					echo "<tr> <td>" .$APID. "</td>";
+					echo "<td>" .$APName. "</td>";
+					echo "<td>" .$TN."</td>";
+					
+					echo '<td>';
+					echo  '<a href="overview.php\#workpackage='.$APID.'"> Zum Overview hier klicken</a>';
+					echo '</td></tr>';
 				}
 				?>
 				
