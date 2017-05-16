@@ -27,8 +27,9 @@
             }
             ?>
             <form name="uploadformular" enctype="multipart/form-data" action="dateiupload.php" method="post">
-                Datei: <input type="file" name="uploaddatei" size="60" maxlength="255">
-                <input type="Submit" name="submit" value="Datei hochladen">
+                <input type="file" class="form-control" name="uploaddatei" size="60" maxlength="255">
+                <input type="Submit" class="btn btn-primary" name="submit" value="Datei hochladen"
+                       style="margin-top: 10px">
             </form>
         </div>
     </div>
