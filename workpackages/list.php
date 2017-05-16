@@ -39,15 +39,20 @@
                         </tr>
             
                         <?php
-                        foreach ($pdo->query($sqlWorkpackages) as $row) {
-                
-                            echo "<tr> <td>" . $row ["ArbeitspaketID"] . "</td>";
-                            echo "<td>" . $row["Arbeitspaketezeichnung"] . "</td>";
-                            echo "<td>" . $row ["Teamname"] . "</td>";
-                            echo '<td><a href="overview.php?workpackage="' . $row["Arbeitspaketezeichnung"] . '"> Zum Overview hier klicken</a></td></tr>';
-                        }
-                        ?>
-
+				foreach ( $pdo->query ( $sqlWorkpackages ) as $row ) {
+					$APName = $row["Arbeitspaketezeichnung"];
+					$APID = $row ["ArbeitspaketID"];
+					$TN = $row["Teamname"];
+					
+					echo "<tr> <td>" .$APID. "</td>";
+					echo "<td>" .$APName. "</td>";
+					echo "<td>" .$TN."</td>";
+					
+					echo '<td>';
+					echo  '<a href="overview.php\workpackage='.$APID.'"> Zum Overview hier klicken</a>';
+					echo '</td></tr>';
+				}
+				?>
                     </table>
                 </div>
     
@@ -146,12 +151,11 @@
                             </div>
                         </div>
                     </div>
-        
+      
                     <?php
                 }
             }
             ?>
-
         </div>
     </div>
 </div>

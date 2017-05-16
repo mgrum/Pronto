@@ -27,7 +27,8 @@
                             echo $_SESSION["ProjectID"];
                         }
                         ?></b>
-                </a></li>
+                </a>
+          </li>
             <a href="../project/switch.php">
                 <button class="btn btn-default navbar-btn">
                     <span class="glyphicon glyphicon-transfer"></span> Projekt wechseln
