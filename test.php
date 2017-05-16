@@ -1,5 +1,5 @@
 <?php
-echo "ProjektID: " . $_SESSION["ProjektID"];
-echo "ProjektID: " . $_SESSION["ProjektID"];
-echo "ProjektID: " . $_SESSION["ProjektID"];
+echo "ProjektID: " . $_SESSION["chosenProject"];
+echo "Rolle: " . $_SESSION["role"];
+echo "User: " . $_SESSION["userid"];
 
