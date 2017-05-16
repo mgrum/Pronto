@@ -62,8 +62,80 @@
     
                 if ($role == "Projektleiter" || $role == "Administrator") {
                     ?>
+          
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Benutzer zu
+                        Team hinzufügen
+                    </button>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title" id="exampleModalLabel">Benutzer zu Team hinzufügen</h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <!--TODO-->
+                                            <label for="sel1">Team:</label>
+                                            <select class="form-control" id="sel1">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                            </select>
+                                            <label for="recipient-name" class="form-control-label">E-Mail:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen
+                                    </button>
+                                    <button type="button" class="btn btn-primary">Benutzer hinzufügen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <button class="btn btn-danger" type="button" name="Team hinzufuegen">Team hinzufuegen</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Team
+                        erstellen
+                    </button>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title" id="exampleModalLabel">Team erstellen</h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Teamname:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Teamleiter
+                                                (E-Mail):</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen
+                                    </button>
+                                    <button type="button" class="btn btn-primary">Team erstellen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
         
                     <?php
                 }

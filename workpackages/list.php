@@ -53,7 +53,6 @@
 					echo '</td></tr>';
 				}
 				?>
-
                     </table>
                 </div>
     
@@ -62,10 +61,97 @@
                 if ($role == "Projektleiter" || $role == "Administrator") {
                     ?>
 
-                    <button type="button" class="btn btn-danger" name="Arbeitspaket hinzufügen">Arbeitspaket
-                        hinzufuegen
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Arbeitspaket
+                        erstellen
                     </button>
-        
+
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title" id="exampleModalLabel">Arbeitspaket erstellen</h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Bezeichnung:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Frühester
+                                                Anfangszeitpunkt:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Spätester
+                                                Anfangszeitpunkt:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Frühester
+                                                Endzeitpunkt:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Spätester
+                                                Endzeitpunkt:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Gesamtpuffer:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Freier
+                                                Puffer:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Realistische
+                                                Dauer:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Optimistische
+                                                Dauer:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Pessimistische
+                                                Dauer:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">PERT:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Meilenstein:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Vorgänger-ID:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="form-control-label">Team-ID:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen
+                                    </button>
+                                    <button type="button" class="btn btn-primary">Arbeitspaket erstellen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+      
                     <?php
                 }
             }

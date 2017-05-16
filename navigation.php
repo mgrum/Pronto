@@ -21,7 +21,14 @@
                 <a href="../todos/personal.php">To-do</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="../project/dashboard.php"> Aktuelles Projekt: - </a></li>
+            <li><a href="../project/dashboard.php"> Aktuelles Projekt: -
+                    <b><?php
+                        if (isset($_SESSION["ProjectID"])) {
+                            echo $_SESSION["ProjectID"];
+                        }
+                        ?></b>
+                </a>
+          </li>
             <a href="../project/switch.php">
                 <button class="btn btn-default navbar-btn">
                     <span class="glyphicon glyphicon-transfer"></span> Projekt wechseln
