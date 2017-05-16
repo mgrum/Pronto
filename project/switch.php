@@ -17,9 +17,9 @@
             <?php
             include_once "../database.php";
             if (isset($pdo)) {
-            	
-               $userid = $_SESSION ['userid'];
-               $_SESSION ['project'] = "";
+    
+                $userid = $_SESSION['userid'];
+                $_SESSION['chosenProject'] = "";
                // Statement um die Nummer des Projekts zu holen aus der Übersichtstabelle
                $sql = "SELECT Projekt.ProjektID, Projekt.Bezeichnung, Rolle.Bezeichnung AS Rolle FROM (Projekt INNER JOIN BenutzerProjektRolle ON Projekt.ProjektID=BenutzerProjektRolle.ProjektID)
 		INNER JOIN Rolle ON BenutzerProjektRolle.RolleID=Rolle.RolleID WHERE EMail ='$userid'";
@@ -46,10 +46,6 @@
                 echo "</table>";
             }    
             ?>
-
-        </div>
-    </div>
-<!--   -->
 
     <script type="text/javascript">
         function setProject(ID,bez,role) {
