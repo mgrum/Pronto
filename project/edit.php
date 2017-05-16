@@ -24,7 +24,7 @@
             include_once "../database.php";
             if (isset($pdo)) {
                 // TODO Content
-        
+        		echo "In Arbeit";
             }
             ?>
         </div>

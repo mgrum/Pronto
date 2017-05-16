@@ -59,7 +59,7 @@
     
                 <?php
                 if ($role == "Projektleiter" || $role == "Administrator") {
-                    echo '<button type="button" class="btn btn-danger" name="Projekt bearbeiten">Projekt bearbeiten</button>';
+                    echo '<button type="button" class="btn btn-danger" name="Projekt bearbeiten" onClick="edit.php">Projekt bearbeiten</button>';
                 }
             }
             ?>
