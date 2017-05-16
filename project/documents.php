@@ -31,9 +31,6 @@
                 <input type="Submit" name="submit" value="Datei hochladen">
             </form>
 
-
-            *************************************
-    
     
             <?php
             echo "<pre>";
