@@ -62,7 +62,7 @@
     
                 if ($role == "Projektleiter" || $role == "Administrator") {
                     ?>
-
+          
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Benutzer zu
                         Team hinzufügen
                     </button>
@@ -135,6 +135,7 @@
                             </div>
                         </div>
                     </div>
+
         
                     <?php
                 }
