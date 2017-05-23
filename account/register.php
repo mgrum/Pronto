@@ -102,7 +102,7 @@ $pdo = null;
                                    name="sollAZ">
                         </div>
                         <button type="submit" class="btn btn-default">Registrieren</button>
-                        <a href="login.html">
+                        <a href="login.php">
                             <button type="button" class="btn btn-link pull-right">zurück</button>
                         </a>
 
