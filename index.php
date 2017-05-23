@@ -8,8 +8,8 @@
  
 
 <!-- Test ob Projekt gesetzt ist -->
-<?php 
-	if(isset($_SESSION ['project'])){
+<?php
+if (isset($_SESSION ['chosenProject'])) {
 		header("Location: project/dashboard.php");
 	}
 	else{
