@@ -4,8 +4,9 @@
 <!--Else forward to "account/login.php"-->
 
 <?php
-if (isset($_SESSION ['userid'])) {
-    if (isset($_SESSION ['chosenProject'])) {
+session_start();
+if (isset($_SESSION['userid'])) {
+    if (isset($_SESSION['chosenProject'])) {
         header("Location: project/dashboard.php");
     } else {
         header("Location: project/switch.php");
