@@ -29,6 +29,7 @@
                     $_SESSION['userid'] = $email;
                     
                     die ('
+                    <meta http-equiv="refresh" content="3; URL=../index.php">
                     </div></div></div>
                     <div class="alert alert-success" role="alert" style="margin-top: 20px">
                         <strong>Erfolgreich angemeldet!</strong> <br> Sie werden automatisch weitergeleitet...<br>
