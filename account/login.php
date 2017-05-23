@@ -1,7 +1,6 @@
 <!--Description: This is the login page-->
 
 <!--HTML-Header-->
-<?php session_start(); ?>
 <?php include_once "../header.php" ?>
 
 <!--Check for Login-->

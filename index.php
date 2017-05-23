@@ -4,7 +4,9 @@
 <!--Else forward to "account/login.php"-->
 
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 if (isset($_SESSION['userid'])) {
     if (isset($_SESSION['chosenProject'])) {
         header("Location: project/dashboard.php");

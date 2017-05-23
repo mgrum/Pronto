@@ -1,4 +1,7 @@
 <?php //Set variable "page_title" to right value depending on current page
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 $page_title = $_SERVER["PHP_SELF"];
 $link = $page_title;
 if (strpos($page_title, 'account/login.php') !== false) {
