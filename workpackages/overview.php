@@ -31,7 +31,40 @@
             include_once "../database.php";
             if (isset($pdo)) {
                 //TODO
-            }
+                $wp = $_GET['workpackage'];
+                $sqlWorkpackages = "SELECT ArbeitspaketID, Bezeichnung, FAZ, SAZ, FEZ, SEZ, GP, FP, RealCase, BestCase, WorstCase, PERT, Meilenstein, VorgängerID, ProjektID, TeamID FROM Arbeitspaket";
+                ?>
+                
+                <div id=" Workpackag" class="tab-pane">
+                	<table class="table table-striped">
+               			<?php
+            
+                        foreach ($pdo->query($sqlProject) as $row) {
+                
+                        	echo "<tr> <td><b>ArbeitspaketID</b></td> <td>" . $row ["ArbeitspaketID"] . "</td></tr>";
+                        	echo "<tr> <td><b>Bezeichnung</b></td> <td>" . $row ["Bezeichnung"] . "</td></tr>";
+                            echo "<tr> <td><b>FAZ</b></td> <td>" . $row ["FAZ"] . "</td></tr>";
+                            echo "<tr> <td><b>SAZ</b></td> <td>" . $row ["SAZ"] . "</td></tr>";
+                            echo "<tr> <td><b>FEZ</b></td> <td>" . $row ["FEZ"] . "</td></tr>";
+                            echo "<tr> <td><b>SEZ</b></td> <td>" . $row ["SEZ"] . "</td></tr>";
+                            echo "<tr> <td><b>GP</b></td> <td>" . $row ["GP"] . "</td></tr>";
+                            echo "<tr> <td><b>FP</b></td> <td>" . $row ["FP"] . "</td></tr>";
+                            echo "<tr> <td><b>RealCase</b></td> <td>" . $row ["RealCase"] . "</td></tr>";
+                            echo "<tr> <td><b>BestCase</b></td> <td>" . $row ["BestCase"] . "</td></tr>";
+                            echo "<tr> <td><b>WorstCase</b></td> <td>" . $row ["WorstCase"] . "</td></tr>";
+                            echo "<tr> <td><b>PERT</b></td> <td>" . $row ["PERT"] . "</td></tr>";
+                            echo "<tr> <td><b>Meilenstein</b></td> <td>" . $row ["Meilenstein"] . "</td></tr>";
+                            echo "<tr> <td><b>VorgängerID</b></td> <td>" . $row ["VorgängerID"] . "</td></tr>";
+                            echo "<tr> <td><b>ProjektID</b></td> <td>" . $row ["ProjektID"] . "</td></tr>";
+                            echo "<tr> <td><b>TeamID</b></td> <td>" . $row ["TeamID"] . "</td></tr>";
+                
+                
+                        }
+                        ?>
+					</table>
+                </div>
+            <?php 
+            	if($_SESSION["role"] = 'Projektleiter'){
             ?>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Arbeitspaket
                 Ã¤ndern
@@ -170,9 +203,12 @@
                     </div>
                 </div>
             </div>
+            <?php 
+            }
+            ?>
         </div>
     </div>
 </div>
 
 <!--Footer (Closing body and html)-->
-<?php include_once "../footer.html" ?>
+<?php include_once "../footer.html"?>                   

@@ -23,8 +23,8 @@
             <?php
             include_once "../database.php";
             if (isset($pdo)) {
-                $role = $_SESSION ['role'] = "Projektleiter";
-                $project = $_SESSION ["chosenProject"] = "1";
+                $role = $_SESSION ['role'];
+                $project = $_SESSION ["chosenProject"];
     
                 $stringList = "<ul class=\"nav nav-tabs\">";
                 $stringTable = "<div class=\"tab-content\">";
@@ -32,10 +32,11 @@
                 $sqlProject = "SELECT ProjektID, Bezeichnung FROM `Benutzer_pro_Team_pro_Projekt` WHERE ProjektID ='" . $project . "' GROUP BY ProjektID, Bezeichnung;";
     
                 // Erste Schleife erstellt die Tabs
+                
                 foreach ($pdo->query($sqlProject) as $projects) {
-        
-                    $stringList .= "<li><a data-toggle=\"tab\" href=\"#" . $projects ["Bezeichnung"] . "\">" . $projects ["Bezeichnung"] . "</a></li>";
-        
+					$stringList .= "<li><a data-toggle=\"tab\" href=\"#" . $projects ["Bezeichnung"] . "\">" . $projects ["Bezeichnung"] . "</a></li>";
+                    
+                	
                     $sqlTeamMember = "SELECT Vorname, Nachname, EMail, Teamleiter FROM `Benutzer_pro_Team_pro_Projekt` WHERE ProjektID ='" . $project . "' AND Bezeichnung ='" . $projects ["Bezeichnung"] . "' ORDER BY Nachname";
         
                     // Zweite Schleife erstellt die Tabelle
@@ -53,6 +54,7 @@
                         $stringTable .= "<td>" . $row ["Vorname"] . "</td></tr>";
                     }
                     $stringTable .= "</table></div>";
+                
                 }
     
                 $stringList .= "</ul>";
@@ -101,10 +103,10 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Team
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2">Team
                         erstellen
                     </button>
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                          aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
