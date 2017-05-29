@@ -13,7 +13,8 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="panel panel-default panel-body panel-header">
-            <h2>Projektübersicht: <?php if (isset($_SESSION["projectName"])) echo $_SESSION["projectName"] ?></h2>
+            <h2>Projektübersicht:
+                <b><?php if (isset($_SESSION["chosenProjectName"])) echo $_SESSION["chosenProjectName"] ?></b></h2>
         </div>
     </div>
 </div>
@@ -30,8 +31,8 @@
             include_once "../database.php";
             if (isset ($pdo)) {
                 // TODO Content
-                $role = $_SESSION["role"] = "Projektleiter";
-                $project = $_SESSION ["chosenProject"] = "2";
+                $role = $_SESSION["role"];
+                $project = $_SESSION ["chosenProject"];
     
                 $sqlProject = "SELECT Bezeichnung, SollArbeitszeit, IstArbeitszeit, PlanArbeitszeit, Anfangsdatum, Enddatum, Status FROM Projekt WHERE ProjektID='" . $project . "'";
     

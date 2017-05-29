@@ -95,8 +95,11 @@
                     chart.draw(data, options);
                 }
             </script>
-
-            <div style="width: 1000px" id="chart_div"></div>
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>In Arbeit!</strong> Dieser Teil ist noch nicht fertig gestellt.
+            </div>
+            <div style="width: 100%" id="chart_div"></div>
 
         </div>
     </div>

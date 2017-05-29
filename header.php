@@ -51,5 +51,6 @@ if (strpos($page_title, 'account/login.php') !== false) {
     <link rel="stylesheet" media="screen" href="../resources/css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="../resources/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/1.7.11/go-debug.js"></script>
 </head>
 <body class="container">

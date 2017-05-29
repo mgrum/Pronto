@@ -49,7 +49,7 @@
 					echo "<td>" .$TN."</td>";
 					
 					echo '<td>';
-					echo  '<a href="overview.php?workpackage='.$APID.'"> Zum Overview hier klicken</a>';
+                    echo "<a href='overview.php?workpackage=" . $APID . "'> Zum Overview hier klicken</a>";
 					echo '</td></tr>';
 				}
 				?>

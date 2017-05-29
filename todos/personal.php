@@ -25,7 +25,7 @@
             if (isset($pdo)) {
                 // TODO Content
                 //Solange cookie noch nicht vollstaendig: $email = $_SESSION ["email"] = "da.schneider100@gmx.de;
-                $email = $_SESSION ["email"];
+                $email = $_SESSION ["userid"];
         
                 $sql = "SELECT Bezeichnung, Status FROM ToDos_pro_Benutzer WHERE Status != 'geschlossen' AND Email='" . $email . "'";
         

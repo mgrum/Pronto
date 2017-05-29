@@ -23,17 +23,16 @@
                // Statement um die Nummer des Projekts zu holen aus der Übersichtstabelle
                $sql = "SELECT Projekt.ProjektID, Projekt.Bezeichnung, Rolle.Bezeichnung AS Rolle FROM (Projekt INNER JOIN BenutzerProjektRolle ON Projekt.ProjektID=BenutzerProjektRolle.ProjektID)
 		INNER JOIN Rolle ON BenutzerProjektRolle.RolleID=Rolle.RolleID WHERE EMail ='$userid'";
-                echo "<table border=\"1\">\n";
+                echo "<table class=\"table table-bordered table-hover table-responsive lar\">";
+                echo "<thead><tr><th>Nummer</th><th>Projektname</th><th>Rolle</th><th></th></tr></thead>";
                 foreach ($pdo->query($sql) as $row) {
                 	$pid = $row['ProjektID'];
                 	$bez = $row ['Bezeichnung'];
                 	$role = $row ['Rolle'];
                 	
                 	echo "<tr>";
-                    echo "<td>";
-                    echo '<button id="setProject" onClick="setProject('.$pid.',\''.$bez.'\',\''.$role.'\')">';
+                    echo "<td style='width: 60px; text-align: right'>";
                     echo $pid;
-                    echo "</button>";
                     echo "</td>";
                     echo "<td>";
                     echo $bez;
@@ -41,6 +40,7 @@
                     echo "<td>";
                     echo $role;
                     echo "</td>";
+                    echo "<td style='text-align: center'><button id=\"setProject\" onClick=\"setProject('.$pid.',\''.$bez.'\',\''.$role.'\')\">Projekt auswählen</button></td>";
                     echo "</tr>";
                 }
                 echo "</table>";
@@ -49,12 +49,12 @@
 
     <script type="text/javascript">
         function setProject(ID,bez,role) {
-            
-        	location.href = "dashboard.php?ProjectID="+ID+"&projectName="+bez+"&rolle="+role;
+    
+            location.href = "dashboard.php?projectID=" + ID + "&projectName=" + bez + "&rolle=" + role;
                   }
     </script>
-
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Projekt erstellen
+            <button style="margin-top: 10px" type="button" class="btn btn-danger" data-toggle="modal"
+                    data-target="#myModal">Projekt erstellen
             </button>
 
 
