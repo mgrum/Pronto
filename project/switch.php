@@ -40,7 +40,7 @@
                     echo "<td>";
                     echo $role;
                     echo "</td>";
-                    echo "<td style='text-align: center'><button id=\"setProject\" onClick=\"setProject('.$pid.',\''.$bez.'\',\''.$role.'\')\">Projekt auswählen</button></td>";
+                    echo "<td style='text-align: center'><a href='dashboard.php?projectID=" . $pid . "&projectName=" . $bez . "&rolle=" . $role . "'><button id='setProject'>Projekt auswählen</button></a></td>";
                     echo "</tr>";
                 }
                 echo "</table>";

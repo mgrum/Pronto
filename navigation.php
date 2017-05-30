@@ -23,7 +23,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li><a href="../project/dashboard.php"> Aktuelles Projekt: -
                     <b><?php
-                        if (isset($_SESSION["chosenProject"])) {
+                        if (isset($_SESSION["chosenProjectName"])) {
                             echo $_SESSION["chosenProjectName"];
                         }
                         ?></b>
